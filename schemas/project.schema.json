@@ -8,7 +8,9 @@
     "schemaVersion",
     "business",
     "design",
-    "pages"
+    "pages",
+    "recipe",
+    "recipe"
   ],
   "properties": {
     "schemaVersion": {
@@ -80,7 +82,11 @@
         "radius",
         "font",
         "shadow",
-        "density"
+        "density",
+        "palette",
+        "headingFont",
+        "palette",
+        "headingFont"
       ],
       "properties": {
         "preset": {
@@ -127,6 +133,26 @@
         },
         "shadow": {
           "type": "boolean"
+        },
+        "palette": {
+          "enum": [
+            "custom",
+            "lime",
+            "ocean",
+            "terracotta",
+            "forest",
+            "lavender",
+            "saffron"
+          ]
+        },
+        "headingFont": {
+          "enum": [
+            "system",
+            "serif",
+            "mono",
+            "humanist",
+            "display"
+          ]
         }
       }
     },
@@ -176,6 +202,33 @@
               }
             }
           }
+        }
+      }
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "template"
+      ],
+      "properties": {
+        "category": {
+          "enum": [
+            "agency",
+            "dental",
+            "restaurant",
+            "realestate",
+            "education",
+            "services"
+          ]
+        },
+        "template": {
+          "enum": [
+            "classic",
+            "showcase",
+            "conversion"
+          ]
         }
       }
     }

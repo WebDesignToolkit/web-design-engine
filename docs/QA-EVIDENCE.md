@@ -56,4 +56,10 @@ Changes should stay in a draft PR until review. No implicit merge, GitHub Action
 
 ## Website review mirror verified
 
-Ran `tools/sync-portal.mjs` against `WebDesignToolkit/website` branch `feat/agency-ui-library-portal-v0-1`, verifying the six mirrored application files (`index.html`, editor CSS, Foundry CSS, engine module and browser app module) by SHA-256 on disk (including new favicon), then added navigation links from the tool directory and Foundry gallery. Reran the Chrome browser suite with `ENGINE_WEB_ROOT=website/engine`: **24/24 PASS** and zero page errors. The website change remains review-only in PR #1, not merged to main or publicly deployed.
+Ran `tools/sync-portal.mjs` against `WebDesignToolkit/website` branch `feat/agency-ui-library-portal-v0-1`, verifying the seven mirrored application files (`index.html`, editor CSS, Foundry CSS, engine module, recipe module and browser app module) by SHA-256 on disk (including new favicon), then added navigation links from the tool directory and Foundry gallery. Reran the Chrome browser suite with `ENGINE_WEB_ROOT=website/engine`: **24/24 PASS** and zero page errors. The website change remains review-only in PR #1, not merged to main or publicly deployed.
+
+## v0.2: Category and palette acceptance
+
+- Node unit suite: **12/12 PASS** including 6 x 3 recipe combinations, safe copy, adapter IDs and palette/font normalization.
+- Chrome suite: **32/32 PASS** including category switching without losing business name, restaurant composition, dental non-submitting date preference, independent palette/theme, heading typography and fictional example fill.
+- Known remaining gates: manual quality review for all 18 combinations, contrast checking for arbitrary custom palettes and production copy validation.

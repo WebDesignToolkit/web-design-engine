@@ -1,4 +1,4 @@
-# WebDesignToolkit — Web Design Engine v0.1
+# WebDesignToolkit — Web Design Engine v0.2
 
 A **local-first, dependency-free browser application** that turns one client brief into a themeable, four-page static website demo. This is an MVP for our agency, not a production website-builder service.
 
@@ -8,9 +8,21 @@ A **local-first, dependency-free browser application** that turns one client bri
 - Create **Home**, **About**, **Services** and **Contact** pages from a single structured project.
 - Choose **Hardline**, **Studio** or **Calm**; customize semantic colors, typography, corner radius, spacing density and tactile shadows.
 - Preview every page instantly in a sandboxed iframe; switch desktop/mobile viewports.
-- Add, reorder, replace or remove sections with **11 explicit data-bound adapters** referencing canonical Component Foundry IDs.
+- Add, reorder, replace or remove sections with **13 explicit data-bound adapters** referencing canonical Component Foundry IDs.
 - Save and import `webdesign-brief.json`; export an **offline, self-contained ZIP** containing four HTML pages, CSS, project JSON and a README.
 - No accounts, servers, external runtime dependencies, analytics, client data storage or API calls for generated content.
+
+## Category-based layout recipes (v0.2)
+
+Choose from six starter categories: Creative agency, Dental clinic, Restaurant and cafe, Real estate, Education and training, and Local services. Each has Classic Business, Visual Showcase and Lead-focused **layout approaches**, for 18 combinations derived from shared components, not 18 production-certified themes.
+
+Selecting a category or template recomposes Home, About, Services and Contact while preserving entered business information (the category label changes the business industry). The independent **Fill fictional example** action replaces example business text after confirmation.
+
+Theme style and palette are separate: Hardline, Studio and Calm styles can be combined with six curated palettes. Edit accent, background, surface and text colors individually, choose body font and heading font, adjust spacing density, radius and tactile shadows.
+
+Restaurant recipes include price-free menu/offering cards; dental recipes have a disabled preferred-date enquiry layout. These are demonstrations, not operational bookings or verified client claims.
+
+The v1 project schema adds `recipe`, `design.palette` and `design.headingFont`. Older project JSON without those fields is still supported by the runtime normalizer.
 
 ## Local quickstart
 
@@ -40,7 +52,7 @@ Open `http://localhost:8000`. The engine requires an HTTP server for ES modules 
 
 ### Component contract
 
-A page stores an **ordered list** of sections with stable `componentId` values, such as `WDT-HERO-002` and `WDT-SEC-002`. An engine adapter binds business information into the selected variant using HTML-escaping; the Foundry CSS and engine semantic tokens style it. The source gallery currently has 44 *draft* entries, but only **11 IDs have generation adapters**. Other entries cannot be claimed engine-compatible until explicitly adapted and tested.
+A page stores an **ordered list** of sections with stable `componentId` values, such as `WDT-HERO-002` and `WDT-SEC-002`. An engine adapter binds business information into the selected variant using HTML-escaping; the Foundry CSS and engine semantic tokens style it. The source gallery currently has 44 *draft* entries, but only **13 IDs have generation adapters**. Other entries cannot be claimed engine-compatible until explicitly adapted and tested.
 
 ### Data safety
 

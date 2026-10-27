@@ -3,9 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import {defaultProject,normalizeProject,renderPage,themeCSS,buildSite,zipFiles,makePreviewDocument,ADAPTERS,PAGE_DEFS,PRESETS} from "../src/engine.js";
 const sourceCSS=fs.readFileSync(new URL("../assets/foundry.css",import.meta.url),"utf8");
-test("four pages and eleven explicit Foundry component adapters",()=>{
+test("four pages and thirteen explicit Foundry component adapters",()=>{
  const p=defaultProject();
- assert.equal(p.pages.length,4);assert.equal(Object.keys(ADAPTERS).length,11);
+ assert.equal(p.pages.length,4);assert.equal(Object.keys(ADAPTERS).length,13);
  assert.deepEqual(PAGE_DEFS.map(x=>x.slug),["index","about","services","contact"]);
  for(const def of PAGE_DEFS){
   const html=renderPage(p,def.slug);
@@ -82,4 +82,68 @@ test("no simulated booking submission and no external runtime sources",()=>{
  assert.match(html,/No booking or message is sent/);
  assert.match(html,/disabled/);
  assert.doesNotMatch(html,/<script|https?:\/\/|<iframe/i);
+});
+
+import {CATEGORIES,TEMPLATES,PALETTES,composeRecipe,categoryExample} from "../src/recipes.js";
+test("six industry recipes × three layout options produce four composed pages",()=>{
+ assert.equal(Object.keys(CATEGORIES).length,6);
+ assert.equal(Object.keys(TEMPLATES).length,3);
+ for(const c of Object.keys(CATEGORIES))for(const t of Object.keys(TEMPLATES)){
+  const pages=composeRecipe(c,t);
+  assert.equal(pages.length,4);
+  assert.equal(new Set(pages.map(x=>x.slug)).size,4);
+  for(const page of pages){
+   assert.ok(page.sections.length>=3);
+   assert.ok(page.sections.every(entry=>Object.hasOwn(ADAPTERS,entry.componentId)),c+"/"+t+"/"+page.slug);
+  }
+ }
+});
+test("category-specific composition does not invent prices or bookings",()=>{
+ const dental=composeRecipe("dental","classic").find(p=>p.slug==="contact");
+ assert.ok(dental.sections.some(x=>x.componentId==="WDT-BOOK-002"));
+ const restaurant=composeRecipe("restaurant","showcase").find(p=>p.slug==="index");
+ assert.ok(restaurant.sections.some(x=>x.componentId==="WDT-PROD-001"));
+ const p=defaultProject();p.recipe={category:"restaurant",template:"showcase"};p.pages=composeRecipe("restaurant","showcase");
+ p.business.services=categoryExample("restaurant").services;p.business.industry=CATEGORIES.restaurant.industry;
+ const html=renderPage(p,"index");
+ assert.match(html,/Menu highlights/);
+ assert.match(html,/No verified price/);
+ const d=defaultProject();d.recipe={category:"dental",template:"classic"};d.pages=composeRecipe("dental","classic");
+ assert.match(renderPage(d,"contact"),/not a reservation/);
+});
+test("recipe metadata and font/color palette survive normalization and export",()=>{
+ const p=defaultProject();
+ p.recipe={category:"education",template:"conversion"};
+ p.design.palette="ocean";
+ Object.assign(p.design,PALETTES.ocean);
+ p.design.headingFont="display";
+ p.pages=composeRecipe("education","conversion");
+ p.business.name="Existing client name";
+ const normalized=normalizeProject(p);
+ assert.equal(normalized.recipe.category,"education");
+ assert.equal(normalized.recipe.template,"conversion");
+ assert.equal(normalized.business.name,"Existing client name");
+ assert.equal(normalized.design.headingFont,"display");
+ assert.match(themeCSS(normalized),/--wd-heading-font:Impact/);
+ assert.match(themeCSS(normalized),/#8CCAF5/);
+ assert.equal(JSON.parse(buildSite(normalized,sourceCSS)["project.json"]).recipe.category,"education");
+});
+
+test("all 18 recipes render four valid pages using industry examples",()=>{
+ for(const category of Object.keys(CATEGORIES)){
+  for(const template of Object.keys(TEMPLATES)){
+   const p=defaultProject();
+   p.recipe={category,template};p.pages=composeRecipe(category,template);
+   Object.assign(p.business,categoryExample(category));
+   p.business.industry=CATEGORIES[category].industry;
+   for(const slug of PAGE_DEFS.map(x=>x.slug)){
+    const html=renderPage(p,slug);
+    assert.match(html,/<main id="main-content">/);
+    assert.match(html,/<h1(?:\s|>)/);
+    assert.doesNotMatch(html,/\bundefined\b/);
+    assert.ok(html.includes(p.business.name.replaceAll("&","&amp;")),category+" "+template+" "+slug);
+    if(category==="dental"&&slug==="contact")assert.match(html,/type="date" disabled/);
+   }
+  }
+ }
 });

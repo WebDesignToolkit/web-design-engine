@@ -9,7 +9,7 @@ const portal=path.join(site,"engine");
 if(!fs.existsSync(path.join(site,"library/index.html")))throw Error("Website Foundry review branch not checked out");
 const branch=child.execFileSync("git",["-C",site,"branch","--show-current"],{encoding:"utf8"}).trim();
 if(branch!=="feat/agency-ui-library-portal-v0-1")throw Error("Unexpected website branch: "+branch);
-const paths=["index.html","assets/editor.css","assets/foundry.css","assets/favicon.svg","src/engine.js","src/app.js"];
+const paths=["index.html","assets/editor.css","assets/foundry.css","assets/favicon.svg","src/engine.js","src/recipes.js","src/app.js"];
 for(const rel of paths){
  const src=path.join(root,rel),dest=path.join(portal,rel);
  fs.mkdirSync(path.dirname(dest),{recursive:true});

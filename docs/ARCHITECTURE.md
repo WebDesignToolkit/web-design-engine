@@ -35,3 +35,14 @@ The Foundry stylesheet is intentionally copied as `assets/foundry.css`, not fetc
 - Client asset upload with validation and licensing provenance.
 - Client-friendly one-click preview links and approved delivery/deployment workflow.
 - Visual regression, browser zoom, accessibility and security acceptance beyond this MVP.
+
+## v0.2: Industry recipes and independent design tokens
+
+- `src/recipes.js` is the catalog of six categories, three page layout recipes, six palettes and fictitious example content.
+- `project.recipe` selects category and template, while `project.pages` stays the authoritative editable section arrangement.
+- `project.design.palette` is separate from `project.design.preset`, allowing any color palette with Hardline, Studio or Calm styles.
+- `project.design.headingFont` styles headings independently of the body font.
+- New Foundry IDs: `WDT-PROD-001` (price-free offerings), `WDT-BOOK-002` (disabled date preference); total 13 generation adapters.
+- The engine accepts legacy project JSON without new recipe fields. The output project schema documents the expanded format.
+- Keep `src/recipes.js` mirrored alongside the other editor ES modules.
+- An industry/layout combination does not constitute a separately QA-certified full template.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "engineVersion": "0.1.0",
+  "engineVersion": "0.2.0",
   "canonicalFoundry": "https://github.com/WebDesignToolkit/design-system/tree/feat/agency-ui-library-v0-1/library",
   "scope": "Engine adapters for currently supported Foundry IDs, not all 44.",
   "adapterStatus": "draft-reviewed-in-local-tests-only",
@@ -250,6 +250,54 @@
       "source": "WebDesignToolkit/design-system",
       "label": "Contact preview (no-send)",
       "family": "contact",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-BOOK-002",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Date preference demo (no-send)",
+      "family": "contact",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-PROD-001",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Menu / offering cards",
+      "family": "products",
       "renderer": "src/engine.js#adapter",
       "supported": true,
       "boundFields": [
