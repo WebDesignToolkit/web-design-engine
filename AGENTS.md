@@ -26,3 +26,7 @@ Do not rewrite historical evidence or force-push. Keep the audit trail, revert s
 ## Repository-specific scope
 
 Follow hardline tactile design conventions, keyboard accessibility and reduced-motion behavior. Do not introduce unrelated branding or dependencies.
+
+## Web Design Engine scope
+
+This repo owns client-brief normalization, deterministic page assembly, adapter metadata, local previews and static export. Keep all user data in browser memory until explicitly downloaded; never send business details to external models, analytics, backends or external assets without authorization. Booking forms remain disabled in demos. Source Foundry references must be reviewed and version-pinned; no runtime remote scripts, GitHub Actions or automatic deployment. Use local Node unit tests, Chrome/Puppeteer acceptance, and Python ZIP verification before proposing publication.

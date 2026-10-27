@@ -1,0 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+import {defaultProject,normalizeProject,buildSite,zipFiles,ADAPTERS,PRESETS} from "../src/engine.js";
+const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+const css=fs.readFileSync(path.join(ROOT,"assets/foundry.css"),"utf8");
+const output=process.argv[2]||path.join(ROOT,"tests","sample-demo.zip");
+const project=process.argv[3]?normalizeProject(JSON.parse(fs.readFileSync(process.argv[3],"utf8"))):defaultProject();
+const files=buildSite(project,css);
+fs.writeFileSync(output,Buffer.from(await zipFiles(files).arrayBuffer()));
+console.log(JSON.stringify({output,paths:Object.keys(files),bytes:fs.statSync(output).size,adapterCount:Object.keys(ADAPTERS).length,themes:Object.keys(PRESETS)}));
