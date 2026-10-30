@@ -10,3 +10,33 @@ main{max-width:1600px;margin:auto;padding:0 clamp(16px,3vw,42px)}.intro{display:
 .recipe-panel .small-btn{width:100%;background:var(--accent)}
 .palette-preview{display:flex;gap:.35rem;min-height:35px}
 .palette-preview span{flex:1;height:34px;border:1px solid var(--ink);min-width:22px}
+
+/* Agency Foundry v0.3: visual website template choice cards. */
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%);padding:0;margin:-1px;border:0}
+.template-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.template-card{min-width:0;min-height:230px;display:flex;flex-direction:column;align-items:stretch;gap:.4rem;cursor:pointer;text-align:left;padding:.55rem;background:#fff;border:2px solid #969f9e;box-shadow:none;border-radius:0;font:inherit}
+.template-card:hover{border-color:var(--ink);box-shadow:3px 3px var(--ink)}
+.template-card[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink);background:#fcfff2}
+.template-card:active{transform:translate(2px,2px);box-shadow:none}
+.template-card strong{font-size:.75rem;line-height:1.2;letter-spacing:-.02em}
+.template-card small{font-size:.64rem;line-height:1.35;color:var(--muted);flex:1}
+.template-card-select{font-size:.66rem;font-weight:850;border-top:1px solid #c6ccca;padding-top:.35rem}
+.template-card[aria-pressed=true] .template-card-select{color:#2f5c14}
+.template-mini{height:88px;width:100%;position:relative;background:#f8faf6;border:1px solid #4b5454;overflow:hidden;display:block}
+.template-mini>*{position:absolute;display:block}
+.template-mini-bar{left:7%;right:7%;top:9%;height:7%;background:#222}
+.template-mini-hero{left:8%;top:27%;width:42%;height:8%;background:#273c3b}
+.template-mini-lines{left:8%;top:42%;width:37%;height:15%;border-top:3px solid #8c9995;border-bottom:3px solid #8c9995}
+.template-mini-art{right:8%;top:26%;width:35%;height:40%;background:#c7e4a1;border:2px solid #222}
+.template-mini-grid{bottom:9%;left:8%;right:8%;height:13%;background:repeating-linear-gradient(90deg,#dedfdc 0 28%,transparent 28% 34%)}
+.template-mini--showcase{background:#f8eee6}
+.template-mini--showcase .template-mini-hero{top:33%;width:75%;height:11%;background:#221f1e}
+.template-mini--showcase .template-mini-art{top:51%;right:7%;left:7%;width:auto;height:27%;background:#d6a5aa}
+.template-mini--showcase .template-mini-lines{top:19%;height:4%;border-width:2px}
+.template-mini--showcase .template-mini-grid{display:none}
+.template-mini--conversion{background:#eef6fe}
+.template-mini--conversion .template-mini-hero{width:77%;top:28%;height:10%}
+.template-mini--conversion .template-mini-art{left:8%;right:auto;top:59%;width:41%;height:16%;background:#beddee}
+.template-mini--conversion .template-mini-lines{top:43%;height:8%;width:74%;border-width:2px}
+.template-mini--conversion .template-mini-grid{left:55%;top:60%;bottom:auto;width:32%;height:13%;background:#2c6d79}
+@media(max-width:500px){.template-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}.template-card{padding:.4rem;min-height:220px}.template-card small{font-size:.6rem}.template-mini{height:72px}}

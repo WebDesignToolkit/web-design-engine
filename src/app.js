@@ -18,10 +18,35 @@ function showPalette(){
  const preview=$("palette-preview");preview.replaceChildren();
  for(const k of colors){const swatch=document.createElement("span");swatch.style.backgroundColor=project.design[k];preview.append(swatch)}
 }
+function renderTemplateGallery(){
+ const gallery=$("template-gallery");gallery.replaceChildren();
+ for(const [key,template] of Object.entries(TEMPLATES)){
+  const button=document.createElement("button");
+  button.type="button";button.className="template-card";button.dataset.templateChoice=key;
+  const chosen=project.recipe.template===key;button.setAttribute("aria-pressed",String(chosen));
+  const miniature=document.createElement("span");miniature.className="template-mini template-mini--"+key;miniature.setAttribute("aria-hidden","true");
+  const bar=document.createElement("span");bar.className="template-mini-bar";
+  const hero=document.createElement("span");hero.className="template-mini-hero";
+  const lines=document.createElement("span");lines.className="template-mini-lines";
+  const dot=document.createElement("span");dot.className="template-mini-art";
+  const grids=document.createElement("span");grids.className="template-mini-grid";
+  miniature.append(bar,hero,lines,dot,grids);
+  const title=document.createElement("strong");title.textContent=template.label;
+  const subtitle=document.createElement("small");subtitle.textContent=template.description;
+  const tick=document.createElement("span");tick.className="template-card-select";tick.textContent=chosen?"Selected ✓":"Select layout ↗";
+  button.append(miniature,title,subtitle,tick);
+  button.addEventListener("click",()=>{
+    $("layout-template").value=key;
+    $("layout-template").dispatchEvent(new Event("change",{bubbles:true}));
+  });
+  gallery.append(button);
+ }
+}
 function syncRecipeControls(){
  $("category").value=project.recipe.category;
  $("layout-template").value=project.recipe.template;
  $("template-info").textContent=TEMPLATES[project.recipe.template].description;
+ renderTemplateGallery();
  $("palette").value=project.design.palette||"custom";
  showPalette();
 }

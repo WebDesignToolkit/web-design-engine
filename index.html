@@ -18,7 +18,12 @@
  <p class="eyebrow">FIRST / SELECT A BUSINESS & DESIGN</p>
  <div class="field"><label for="category">Business category</label><select id="category" aria-describedby="category-help"></select></div>
  <p id="category-help" class="helper">Choose a category. Your existing business details stay unchanged.</p>
- <div class="field"><label for="layout-template">Website layout template</label><select id="layout-template" aria-describedby="template-info"></select></div>
+ <div class="field">
+<label id="template-cards-label">Choose a visual website template</label>
+<div id="template-gallery" class="template-gallery" role="group" aria-labelledby="template-cards-label"></div>
+<label for="layout-template" class="sr-only">Website layout template (accessible alternative)</label>
+<select id="layout-template" class="sr-only" aria-describedby="template-info"></select>
+</div>
  <p id="template-info" class="helper">Choose a complete multi-page layout recipe.</p>
  <button type="button" id="example-content" class="small-btn">Fill fictional example for this category</button>
  <p class="helper">Selecting a layout rearranges the sections on all four pages. Text entered below is preserved. Save your brief first if you've customized the section order.</p>
