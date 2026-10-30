@@ -10,7 +10,7 @@
     "design",
     "pages",
     "recipe",
-    "recipe"
+    "media"
   ],
   "properties": {
     "schemaVersion": {
@@ -229,6 +229,34 @@
             "showcase",
             "conversion"
           ]
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "style",
+        "image",
+        "alt"
+      ],
+      "properties": {
+        "style": {
+          "enum": [
+            "shapes",
+            "editorial",
+            "blueprint",
+            "photo"
+          ]
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 1450000,
+          "description": "Optional embedded JPEG, PNG or WebP data URL, local-only. User supplies copyrighted assets with permission."
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 130
         }
       }
     }

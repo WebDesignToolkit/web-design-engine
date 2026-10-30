@@ -81,3 +81,14 @@ See `docs/QA-EVIDENCE.md`. No GitHub Actions are used. The browser test executab
 ## Governance
 
 The engine uses the organization-wide `AGENTS.md` guardrails. No GitHub Actions, background collection, forced pushes or automatic production deployments.
+
+
+## Visual template gallery and image control (v0.3)
+
+The template picker now uses three keyboard-accessible visual cards with original mini layouts, while preserving the existing selector as a fallback. Generate **Classic Business**, **Visual Showcase**, or **Lead-focused** page sets without changing client business information.
+
+In the **Design** tab, choose **Bold Shapes**, **Editorial Frame**, **Structured Grid**, or **Client Photo**. These visual treatments are original local CSS, not stock images or externally hosted dependencies. The engine adapts service, process and sample showcase headings for the six categories without asserting real client projects or endorsements.
+
+For a real business picture, upload an authorized **JPG, PNG, or WebP up to 900 KB**. The file remains in browser memory and is embedded into the generated static HTML and exported project JSON/ZIP. Explicitly enter descriptive alt text. There is no upload server or image processing API. Do not upload private, copyrighted-without-license, or confidential material; exported demo files will contain the photo data.
+
+Image and template controls are demonstrations awaiting device and accessibility QA; the 44-item canonical Component Foundry still includes draft content.

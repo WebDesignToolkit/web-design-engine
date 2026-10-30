@@ -147,3 +147,30 @@ test("all 18 recipes render four valid pages using industry examples",()=>{
   }
  }
 });
+
+test("portable photo preview and export sanitize image data URLs",()=>{
+ const p=defaultProject();
+ p.media={style:"photo",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB",alt:"Sample client photograph"};
+ const html=renderPage(p,"index");
+ assert.match(html,/engine-visual--photo/);
+ assert.match(html,/alt="Sample client photograph"/);
+ const exported=buildSite(p,sourceCSS);
+ assert.match(exported["index.html"],/data:image\/png;base64,/);
+ const restored=JSON.parse(exported["project.json"]);
+ assert.equal(restored.media.style,"photo");
+ assert.equal(restored.media.image,p.media.image);
+ p.media.image="data:image/svg+xml;base64,PHN2Zz4=";
+ assert.equal(normalizeProject(p).media.image,"");
+ p.media.alt="<svg onload=alert(1)>";
+ assert.doesNotMatch(renderPage(p,"index"),/onload=alert/);
+});
+test("visual variants follow layout and category copy without remote images",()=>{
+ const p=defaultProject();p.media={style:"blueprint",image:"",alt:"Illustration"};
+ p.recipe={category:"dental",template:"showcase"};p.pages=composeRecipe("dental","showcase");
+ Object.assign(p.business,categoryExample("dental"));p.business.industry=CATEGORIES.dental.industry;
+ const html=renderPage(p,"index");
+ assert.match(html,/data-wd-layout="showcase"/);
+ assert.match(html,/engine-visual--blueprint/);
+ assert.match(renderPage(p,"services"),/Care and consultations/);
+ assert.match(themeCSS(p),/engine-visual--blueprint/);
+});
