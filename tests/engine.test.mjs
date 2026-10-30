@@ -47,7 +47,7 @@ test("reorder, remove and insert Foundry sections preserves layout",()=>{
  const original=p.pages[0].sections;
  p.pages[0].sections=[original[1],original[0],{id:"new",componentId:"WDT-PORT-001"},original[2]];
  let html=renderPage(p,"index");
- assert.ok(html.indexOf("What we do")<html.indexOf("Better websites"));
+ assert.ok(html.indexOf("Creative capabilities")<html.indexOf("Better websites"));
  assert.match(html,/Selected ideas/);
  const p2=normalizeProject({...p,pages:p.pages.map(x=>x.slug==="about"?{...x,sections:[]}:x)});
  assert.equal(p2.pages.find(x=>x.slug==="about").sections.length,0);
