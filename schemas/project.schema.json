@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebDesignToolkit Website Project v1",
+  "description": "Portable declarative website demo specification. Editable in Web Design Engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "business",
+    "design",
+    "pages",
+    "recipe",
+    "media"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "business": {
+      "type": "object",
+      "required": [
+        "name",
+        "industry",
+        "tagline",
+        "summary",
+        "email",
+        "phone",
+        "location",
+        "cta",
+        "services",
+        "benefits"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "cta": {
+          "type": "string"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "benefits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preset",
+        "accent",
+        "bg",
+        "ink",
+        "surface",
+        "radius",
+        "font",
+        "shadow",
+        "density",
+        "palette",
+        "headingFont",
+        "palette",
+        "headingFont"
+      ],
+      "properties": {
+        "preset": {
+          "enum": [
+            "hardline",
+            "studio",
+            "calm"
+          ]
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "bg": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "ink": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "surface": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "radius": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "font": {
+          "enum": [
+            "system",
+            "serif",
+            "mono"
+          ]
+        },
+        "density": {
+          "enum": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ]
+        },
+        "shadow": {
+          "type": "boolean"
+        },
+        "palette": {
+          "enum": [
+            "custom",
+            "lime",
+            "ocean",
+            "terracotta",
+            "forest",
+            "lavender",
+            "saffron"
+          ]
+        },
+        "headingFont": {
+          "enum": [
+            "system",
+            "serif",
+            "mono",
+            "humanist",
+            "display"
+          ]
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "slug",
+          "title",
+          "sections"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "slug": {
+            "enum": [
+              "index",
+              "about",
+              "services",
+              "contact"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "sections": {
+            "type": "array",
+            "maxItems": 15,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "componentId"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9_-]+$"
+                },
+                "componentId": {
+                  "type": "string",
+                  "pattern": "^WDT-[A-Z]+-[0-9]{3}$"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "template"
+      ],
+      "properties": {
+        "category": {
+          "enum": [
+            "agency",
+            "dental",
+            "restaurant",
+            "realestate",
+            "education",
+            "services"
+          ]
+        },
+        "template": {
+          "enum": [
+            "classic",
+            "showcase",
+            "conversion"
+          ]
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "style",
+        "image",
+        "alt"
+      ],
+      "properties": {
+        "style": {
+          "enum": [
+            "shapes",
+            "editorial",
+            "blueprint",
+            "photo"
+          ]
+        },
+        "image": {
+          "type": "string",
+          "maxLength": 1450000,
+          "description": "Optional embedded JPEG, PNG or WebP data URL, local-only. User supplies copyrighted assets with permission."
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 130
+        }
+      }
+    }
+  }
+}

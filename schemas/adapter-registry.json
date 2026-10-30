@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "0.2.0",
+  "canonicalFoundry": "https://github.com/WebDesignToolkit/design-system/tree/feat/agency-ui-library-v0-1/library",
+  "scope": "Engine adapters for currently supported Foundry IDs, not all 44.",
+  "adapterStatus": "draft-reviewed-in-local-tests-only",
+  "adapters": [
+    {
+      "componentId": "WDT-HERO-001",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Centered hero",
+      "family": "hero",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-HERO-002",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Editorial split hero",
+      "family": "hero",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-HERO-003",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Product-led hero",
+      "family": "hero",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-SEC-002",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Services grid",
+      "family": "services",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-TEST-003",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Trust/process cards",
+      "family": "trust",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-BLOCK-003",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Three-step process",
+      "family": "process",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-SEC-003",
+      "source": "WebDesignToolkit/design-system",
+      "label": "FAQ accordions",
+      "family": "faq",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-SEC-004",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Final call to action",
+      "family": "cta",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-PORT-001",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Portfolio examples",
+      "family": "portfolio",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-PRICE-003",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Custom quote section",
+      "family": "pricing",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-BOOK-001",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Contact preview (no-send)",
+      "family": "contact",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-BOOK-002",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Date preference demo (no-send)",
+      "family": "contact",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    },
+    {
+      "componentId": "WDT-PROD-001",
+      "source": "WebDesignToolkit/design-system",
+      "label": "Menu / offering cards",
+      "family": "products",
+      "renderer": "src/engine.js#adapter",
+      "supported": true,
+      "boundFields": [
+        "business.name",
+        "business.tagline",
+        "business.summary",
+        "business.industry",
+        "business.location",
+        "business.services",
+        "business.benefits",
+        "business.email",
+        "business.cta"
+      ],
+      "propsContract": "The engine binds approved business fields, HTML-escapes content, and uses semantic theme CSS.",
+      "limitations": [
+        "Illustrative content",
+        "Human review required before client deployment"
+      ]
+    }
+  ],
+  "themes": [
+    "hardline",
+    "studio",
+    "calm"
+  ]
+}
