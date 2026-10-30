@@ -40,3 +40,23 @@ main{max-width:1600px;margin:auto;padding:0 clamp(16px,3vw,42px)}.intro{display:
 .template-mini--conversion .template-mini-lines{top:43%;height:8%;width:74%;border-width:2px}
 .template-mini--conversion .template-mini-grid{left:55%;top:60%;bottom:auto;width:32%;height:13%;background:#2c6d79}
 @media(max-width:500px){.template-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}.template-card{padding:.4rem;min-height:220px}.template-card small{font-size:.6rem}.template-mini{height:72px}}
+
+/* Original artwork styles; no remotely loaded images. */
+.visual-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+.visual-card{min-width:0;text-align:left;cursor:pointer;background:#fff;border:2px solid #9ca9aa;
+ border-radius:0;padding:.4rem;min-height:100px;display:grid;align-content:start;gap:.45rem}
+.visual-card strong{font-size:.67rem;line-height:1.2;overflow-wrap:anywhere}
+.visual-card:hover,.visual-card[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.visual-thumb{height:58px;display:block;position:relative;overflow:hidden;border:1px solid #222;background:#d4fb57}
+.visual-thumb:after{content:"";position:absolute;width:65%;height:85%;left:25%;top:10%;background:#fff;border:2px solid #222;border-radius:50%}
+.visual-thumb:before{content:"";position:absolute;left:10%;bottom:10%;height:40%;width:60%;background:#222;transform:rotate(-12deg);z-index:1}
+.visual-thumb--editorial{background:linear-gradient(145deg,#f4beaf 0 65%,#fff 65%)}
+.visual-thumb--editorial:after{border-radius:0;transform:rotate(16deg);background:#f0e5c2}
+.visual-thumb--blueprint{background-color:#152b36;background-image:linear-gradient(#64909d55 1px,transparent 1px),linear-gradient(90deg,#64909d55 1px,transparent 1px);background-size:12px 12px}
+.visual-thumb--blueprint:before,.visual-thumb--blueprint:after{background:transparent;border:2px solid #98d2dc}
+.visual-thumb--photo{background:linear-gradient(155deg,#d9e0ee,#afc8c0)}
+.visual-thumb--photo:before{transform:none;clip-path:polygon(0 100%,50% 15%,100% 100%);background:#7b9783}
+.visual-thumb--photo:after{width:19px;height:19px;top:17%;left:16%;border:0;background:#f6e0b3}
+.photo-upload{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
+.photo-upload .small-btn{font-size:.72rem;box-shadow:none}
+@media(max-width:460px){.visual-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
